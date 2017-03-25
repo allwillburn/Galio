@@ -103,7 +103,7 @@ OnTick(function (myHero)
 	--AUTO LEVEL UP
 	if GalioMenu.AutoMode.Level:Value() then
 
-			spellorder = {_E, _W, _Q, _W, _W, _R, _W, _Q, _W, _Q, _R, _Q, _Q, _E, _E, _R, _E, _E}
+			spellorder = {_Q, _E, _W, _Q, _Q, _R, _Q, _E, _Q, _E, _R, _E, _E, _W, _W, _R, _W, _W}
 			if GetLevelPoints(myHero) > 0 then
 				LevelSpell(spellorder[GetLevel(myHero) + 1 - GetLevelPoints(myHero)])
 			end
