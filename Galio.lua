@@ -137,7 +137,7 @@ OnTick(function (myHero)
 
             if GalioMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 825) then
 		     if target ~= nil then 
-                         CastTargetSpell(target, _Q)
+                         CastTargetSpell(_Q, target)
                      end
             end
 
@@ -258,7 +258,7 @@ end)
 OnDraw(function (myHero)
         
          if GalioMenu.Drawings.DQ:Value() then
-		DrawCircle(GetOrigin(myHero), 8250, 0, 200, GoS.Black)
+		DrawCircle(GetOrigin(myHero), 825, 0, 200, GoS.Black)
 	end
 
 end)
