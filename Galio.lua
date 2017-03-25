@@ -50,10 +50,6 @@ GalioMenu.Combo:Boolean("YGB", "Use GhostBlade", true)
 GalioMenu.Combo:Boolean("Gunblade", "Use Gunblade", true)
 GalioMenu.Combo:Boolean("Randuins", "Use Randuins", true)
 
-
-GalioMenu:SubMenu("Warning Using R in Combo May Get You Banned ", "Warning Using R in Combo May Get You Banned ")
-
-
 GalioMenu:SubMenu("AutoMode", "AutoMode")
 GalioMenu.AutoMode:Boolean("Level", "Auto level spells", false)
 GalioMenu.AutoMode:Boolean("Ghost", "Auto Ghost", false)
@@ -86,6 +82,8 @@ GalioMenu.Drawings:Boolean("DQ", "Draw Q Range", true)
 GalioMenu:SubMenu("SkinChanger", "SkinChanger")
 GalioMenu.SkinChanger:Boolean("Skin", "UseSkinChanger", true)
 GalioMenu.SkinChanger:Slider("SelectedSkin", "Select A Skin:", 1, 0, 4, 1, function(SetDCP) HeroSkinChanger(myHero, SetDCP)  end, true)
+
+GalioMenu:SubMenu("Warning Using R in Combo May Get You Banned ", "Warning Using R in Combo May Get You Banned ")
 
 OnTick(function (myHero)
 	local target = GetCurrentTarget()
