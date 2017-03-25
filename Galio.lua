@@ -244,7 +244,7 @@ OnTick(function (myHero)
         end
         if GalioMenu.AutoMode.R:Value() then        
 	  if Ready(_R) and ValidTarget(target, 4000) then
-		      CastTargetSpell(target, _W)
+		      CastTargetSpell(target, _R)
 	  end
         end
                 
