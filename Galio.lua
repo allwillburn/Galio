@@ -40,7 +40,7 @@ GalioMenu.Combo:Boolean("Q", "Use Q in combo", true)
 GalioMenu.Combo:Slider("Qpred", "Q Hit Chance", 3,0,10,1)
 GalioMenu.Combo:Boolean("W", "Use W in combo", true)
 GalioMenu.Combo:Boolean("E", "Use E in combo", true)
-GalioMenu.Combo:Boolean("R", "Use R in combo", true)
+GalioMenu.Combo:Boolean("R", "Use R in combo", false)
 GalioMenu.Combo:Slider("RX", "X Enemies to Cast R",3,1,5,1)
 GalioMenu.Combo:Boolean("Cutlass", "Use Cutlass", true)
 GalioMenu.Combo:Boolean("Tiamat", "Use Tiamat", true)
@@ -50,6 +50,9 @@ GalioMenu.Combo:Boolean("YGB", "Use GhostBlade", true)
 GalioMenu.Combo:Boolean("Gunblade", "Use Gunblade", true)
 GalioMenu.Combo:Boolean("Randuins", "Use Randuins", true)
 
+
+GalioMenu:SubMenu("Warning", "Warning")
+GalioMenu.Warning("Using R in Combo May Get You Banned")
 
 GalioMenu:SubMenu("AutoMode", "AutoMode")
 GalioMenu.AutoMode:Boolean("Level", "Auto level spells", false)
