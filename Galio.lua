@@ -153,7 +153,7 @@ OnTick(function (myHero)
 			CastSpell(RHydra)
             end
 
-	    if GalioMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 200) then
+	    if GalioMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 500) then
 			CastSpell(_W)
 	    end
 	    
@@ -190,7 +190,7 @@ OnTick(function (myHero)
                 
                 if IsReady(_Q) and ValidTarget(enemy, 825) and GalioMenu.KillSteal.Q:Value() and GetHP(enemy) < getdmg("Q",enemy) then
 		         if target ~= nil then 
-                                      CastTargetSpell(target, _Q)
+                                      CastSkillShot(_Q, target)
 		         end
                 end 
 
@@ -203,7 +203,7 @@ OnTick(function (myHero)
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
 	        if GalioMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 825) then
-	        	CastTargetSpell(closeminion, _Q)
+	        	CastSkillShot(closeminion, _Q)
                 end
 
                 if GalioMenu.LaneClear.W:Value() and Ready(_W) and ValidTarget(closeminion, 200) then
@@ -226,11 +226,11 @@ OnTick(function (myHero)
         --AutoMode
         if GalioMenu.AutoMode.Q:Value() then        
           if Ready(_Q) and ValidTarget(target, 825) then
-		      CastTargetSpell(target, _Q)
+		      CastSkillShot(_Q, target)
           end
         end 
         if GalioMenu.AutoMode.W:Value() then        
-          if Ready(_W) and ValidTarget(target, 200) then
+          if Ready(_W) and ValidTarget(target, 500) then
 	  	      CastSpell(_W)
           end
         end
