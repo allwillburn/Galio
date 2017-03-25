@@ -51,8 +51,8 @@ GalioMenu.Combo:Boolean("Gunblade", "Use Gunblade", true)
 GalioMenu.Combo:Boolean("Randuins", "Use Randuins", true)
 
 
-GalioMenu:SubMenu("Warning", "Warning")
-GalioMenu.Warning("Using R in Combo May Get You Banned")
+GalioMenu:SubMenu("Warning Using R in Combo May Get You Banned ", "Warning Using R in Combo May Get You Banned ")
+
 
 GalioMenu:SubMenu("AutoMode", "AutoMode")
 GalioMenu.AutoMode:Boolean("Level", "Auto level spells", false)
