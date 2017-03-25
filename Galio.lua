@@ -30,11 +30,14 @@ GetWebResultAsync("https://raw.githubusercontent.com/allwillburn/Galio/master/Ga
 GetLevelPoints = function(unit) return GetLevel(unit) - (GetCastLevel(unit,0)+GetCastLevel(unit,1)+GetCastLevel(unit,2)+GetCastLevel(unit,3)) end
 local SetDCP, SkinChanger = 0
 
+local GalioQ = {delay = .5, range = 850, width = 250, speed = 1200}
+
 local GalioMenu = Menu("Galio", "Galio")
 
 GalioMenu:SubMenu("Combo", "Combo")
 
 GalioMenu.Combo:Boolean("Q", "Use Q in combo", true)
+GalioMenu.Combo:Slider("Qpred", "Q Hit Chance", 3,0,10,1)
 GalioMenu.Combo:Boolean("W", "Use W in combo", true)
 GalioMenu.Combo:Boolean("E", "Use E in combo", true)
 GalioMenu.Combo:Boolean("R", "Use R in combo", true)
@@ -138,12 +141,13 @@ OnTick(function (myHero)
 			 CastSkillShot(_E, target)
 	    end
 
+           
             if GalioMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 850) then
-		     if target ~= nil then 
-                         CastSkillShot(_Q, target)
-                     end
+                local QPred = GetPrediction(target,GalioQ)
+                       if QPred.hitChance > (GalioMenu.Combo.Qpred:Value() * 0.1) and not QPred:mCollision(1) then
+                                 CastSkillShot(_Q,QPred.castPos)
+                       end
             end
-
             if GalioMenu.Combo.Tiamat:Value() and Tiamat > 0 and Ready(Tiamat) and ValidTarget(target, 350) then
 			CastSpell(Tiamat)
             end
