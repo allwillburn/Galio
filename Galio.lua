@@ -102,7 +102,7 @@ OnTick(function (myHero)
         
         --Harass
           if Mix:Mode() == "Harass" then
-            if GalioMenu.Harass.Q:Value() and Ready(_Q) and ValidTarget(target, 825) then
+            if GalioMenu.Harass.Q:Value() and Ready(_Q) and ValidTarget(target, 850) then
 				if target ~= nil then 
                                       CastSkillShot(_Q, target)
                                 end
@@ -135,7 +135,7 @@ OnTick(function (myHero)
 			 CastSkillShot(_E, target)
 	    end
 
-            if GalioMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 825) then
+            if GalioMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 850) then
 		     if target ~= nil then 
                          CastSkillShot(_Q, target)
                      end
@@ -258,7 +258,7 @@ end)
 OnDraw(function (myHero)
         
          if GalioMenu.Drawings.DQ:Value() then
-		DrawCircle(GetOrigin(myHero), 825, 0, 200, GoS.Black)
+		DrawCircle(GetOrigin(myHero), 850, 0, 200, GoS.Black)
 	end
 
 end)
