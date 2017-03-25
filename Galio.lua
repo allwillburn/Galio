@@ -115,6 +115,8 @@ OnTick(function (myHero)
           end
 
 	--COMBO
+		
+	  local ally = ClosestAlly
 	  if Mix:Mode() == "Combo" then
             if GalioMenu.Combo.YGB:Value() and YGB > 0 and Ready(YGB) and ValidTarget(target, 700) then
 			CastSpell(YGB)
