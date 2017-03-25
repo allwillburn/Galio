@@ -104,7 +104,7 @@ OnTick(function (myHero)
           if Mix:Mode() == "Harass" then
             if GalioMenu.Harass.Q:Value() and Ready(_Q) and ValidTarget(target, 825) then
 				if target ~= nil then 
-                                      CastTargetSpell(target, _Q)
+                                      CastSkillShot(_Q, target)
                                 end
             end
 
@@ -137,7 +137,7 @@ OnTick(function (myHero)
 
             if GalioMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 825) then
 		     if target ~= nil then 
-                         CastTargetSpell(_Q, target)
+                         CastSkillShot(_Q, target)
                      end
             end
 
