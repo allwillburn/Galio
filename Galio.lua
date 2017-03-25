@@ -83,6 +83,10 @@ GalioMenu:SubMenu("SkinChanger", "SkinChanger")
 GalioMenu.SkinChanger:Boolean("Skin", "UseSkinChanger", true)
 GalioMenu.SkinChanger:Slider("SelectedSkin", "Select A Skin:", 1, 0, 4, 1, function(SetDCP) HeroSkinChanger(myHero, SetDCP)  end, true)
 
+GalioMenu:SubMenu("", "")
+
+GalioMenu:SubMenu("", "")
+
 GalioMenu:SubMenu("Warning Using R in Combo May Get You Banned ", "Warning Using R in Combo May Get You Banned ")
 
 OnTick(function (myHero)
