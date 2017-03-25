@@ -90,6 +90,7 @@ OnTick(function (myHero)
         local BOTRK = GetItemSlot(myHero, 3153)
         local Cutlass = GetItemSlot(myHero, 3144)
         local Randuins = GetItemSlot(myHero, 3143)
+        local ally = ClosestAlly
 
 	--AUTO LEVEL UP
 	if GalioMenu.AutoMode.Level:Value() then
