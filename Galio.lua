@@ -162,7 +162,7 @@ OnTick(function (myHero)
 	    
 	    local ally = ClosestAlly
             if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
-			CastTargetSpell(ally, _R)
+			CastTargetSpell(target, _R)
             end
 
           end
@@ -244,7 +244,7 @@ OnTick(function (myHero)
         end
         if GalioMenu.AutoMode.R:Value() then        
 	  if Ready(_R) and ValidTarget(target, 4000) then
-		      CastTargetSpell(_R, ally)
+		      CastTargetSpell(target, _W)
 	  end
         end
                 
