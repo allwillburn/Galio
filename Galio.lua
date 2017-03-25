@@ -203,7 +203,7 @@ OnTick(function (myHero)
       if Mix:Mode() == "LaneClear" then
       	  for _,closeminion in pairs(minionManager.objects) do
 	        if GalioMenu.LaneClear.Q:Value() and Ready(_Q) and ValidTarget(closeminion, 825) then
-	        	CastSkillShot(closeminion, _Q)
+	        	CastSkillShot(_Q, closeminion)
                 end
 
                 if GalioMenu.LaneClear.W:Value() and Ready(_W) and ValidTarget(closeminion, 200) then
