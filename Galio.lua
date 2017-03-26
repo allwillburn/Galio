@@ -1,4 +1,4 @@
-local ver = "0.02"
+local ver = "0.03"
 
 
 if FileExist(COMMON_PATH.."MixLib.lua") then
@@ -116,7 +116,7 @@ OnTick(function (myHero)
           if Mix:Mode() == "Harass" then
             if GalioMenu.Harass.Q:Value() and Ready(_Q) and ValidTarget(target, 850) then
                 local QPred = GetPrediction(target,GalioQ)
-                       if QPred.hitChance > (GalioMenu.Harass.Qpred:Value() * 0.1) and not QPred:mCollision(1) then
+                       if QPred.hitChance > (GalioMenu.Harass.Qpred:Value() * 0.1) then
                                  CastSkillShot(_Q,QPred.castPos)
                        end
             end
@@ -152,7 +152,7 @@ OnTick(function (myHero)
            
             if GalioMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 850) then
                 local QPred = GetPrediction(target,GalioQ)
-                       if QPred.hitChance > (GalioMenu.Combo.Qpred:Value() * 0.1) and not QPred:mCollision(1) then
+                       if QPred.hitChance > (GalioMenu.Combo.Qpred:Value() * 0.1) then
                                  CastSkillShot(_Q,QPred.castPos)
                        end
             end
@@ -205,7 +205,7 @@ OnTick(function (myHero)
                 
                 if IsReady(_Q) and ValidTarget(enemy, 825) and GalioMenu.KillSteal.Q:Value() and GetHP(enemy) < getdmg("Q",enemy) then
 		         local QPred = GetPrediction(target,GalioQ)
-                       if QPred.hitChance > (GalioMenu.KillSteal.Qpred:Value() * 0.1) and not QPred:mCollision(1) then
+                       if QPred.hitChance > (GalioMenu.KillSteal.Qpred:Value() * 0.1) then
                                  CastSkillShot(_Q,QPred.castPos)
                        end
             end
@@ -243,7 +243,7 @@ OnTick(function (myHero)
         if GalioMenu.AutoMode.Q:Value() then        
           if Ready(_Q) and ValidTarget(target, 825) then
 		      local QPred = GetPrediction(target,GalioQ)
-                       if QPred.hitChance > (GalioMenu.Automode.Qpred:Value() * 0.1) and not QPred:mCollision(1) then
+                       if QPred.hitChance > (GalioMenu.Automode.Qpred:Value() * 0.1) then
                                  CastSkillShot(_Q,QPred.castPos)
                        end
                  end
