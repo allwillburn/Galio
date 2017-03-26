@@ -84,7 +84,7 @@ GalioMenu.Drawings:Boolean("DQ", "Draw Q Range", true)
 
 GalioMenu:SubMenu("SkinChanger", "SkinChanger")
 GalioMenu.SkinChanger:Boolean("Skin", "UseSkinChanger", true)
-GalioMenu.SkinChanger:Slider("SelectedSkin", "Select A Skin:", 1, 0, 5, 1, function(SetDCP) HeroSkinChanger(myHero, SetDCP)  end, true)
+GalioMenu.SkinChanger:Slider("SelectedSkin", "Select A Skin:", 1, 0, 6, 1, function(SetDCP) HeroSkinChanger(myHero, SetDCP)  end, true)
 
 GalioMenu:SubMenu("", "")
 
