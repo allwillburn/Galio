@@ -243,7 +243,7 @@ OnTick(function (myHero)
         if GalioMenu.AutoMode.Q:Value() then        
           if Ready(_Q) and ValidTarget(target, 825) then
 		      local QPred = GetPrediction(target,GalioQ)
-                       if QPred.hitChance > (GalioMenu.Automode.Qpred:Value() * 0.1) then
+                       if QPred.hitChance > (GalioMenu.AutoMode.Qpred:Value() * 0.1) then
                                  CastSkillShot(_Q,QPred.castPos)
                        end
                  end
