@@ -1,4 +1,4 @@
-local ver = "0.01"
+local ver = "0.02"
 
 
 if FileExist(COMMON_PATH.."MixLib.lua") then
@@ -54,6 +54,7 @@ GalioMenu:SubMenu("AutoMode", "AutoMode")
 GalioMenu.AutoMode:Boolean("Level", "Auto level spells", false)
 GalioMenu.AutoMode:Boolean("Ghost", "Auto Ghost", false)
 GalioMenu.AutoMode:Boolean("Q", "Auto Q", false)
+GalioMenu.AutoMode:Slider("Qpred", "Q Hit Chance", 3,0,10,1)
 GalioMenu.AutoMode:Boolean("W", "Auto W", false)
 GalioMenu.AutoMode:Boolean("E", "Auto E", false)
 GalioMenu.AutoMode:Boolean("R", "Auto R", false)
@@ -67,10 +68,12 @@ GalioMenu.LaneClear:Boolean("Tiamat", "Use Tiamat", true)
 
 GalioMenu:SubMenu("Harass", "Harass")
 GalioMenu.Harass:Boolean("Q", "Use Q", true)
+GalioMenu.Harass:Slider("Qpred", "Q Hit Chance", 3,0,10,1)
 GalioMenu.Harass:Boolean("W", "Use W", true)
 
 GalioMenu:SubMenu("KillSteal", "KillSteal")
 GalioMenu.KillSteal:Boolean("Q", "KS w Q", true)
+GalioMenu.KillSteal:Slider("Qpred", "Q Hit Chance", 3,0,10,1)
 GalioMenu.KillSteal:Boolean("E", "KS w E", true)
 
 GalioMenu:SubMenu("AutoIgnite", "AutoIgnite")
@@ -112,12 +115,12 @@ OnTick(function (myHero)
         --Harass
           if Mix:Mode() == "Harass" then
             if GalioMenu.Harass.Q:Value() and Ready(_Q) and ValidTarget(target, 850) then
-				if target ~= nil then 
-                                      CastSkillShot(_Q, target)
-                                end
+                local QPred = GetPrediction(target,GalioQ)
+                       if QPred.hitChance > (GalioMenu.Harass.Qpred:Value() * 0.1) and not QPred:mCollision(1) then
+                                 CastSkillShot(_Q,QPred.castPos)
+                       end
             end
-
-            if GalioMenu.Harass.W:Value() and Ready(_W) and ValidTarget(target, 200) then
+            if GalioMenu.Harass.W:Value() and Ready(_W) and ValidTarget(target, 500) then
 				CastSpell(_W)
             end     
           end
@@ -201,10 +204,11 @@ OnTick(function (myHero)
         for _, enemy in pairs(GetEnemyHeroes()) do
                 
                 if IsReady(_Q) and ValidTarget(enemy, 825) and GalioMenu.KillSteal.Q:Value() and GetHP(enemy) < getdmg("Q",enemy) then
-		         if target ~= nil then 
-                                      CastSkillShot(_Q, target)
-		         end
-                end 
+		         local QPred = GetPrediction(target,GalioQ)
+                       if QPred.hitChance > (GalioMenu.KillSteal.Qpred:Value() * 0.1) and not QPred:mCollision(1) then
+                                 CastSkillShot(_Q,QPred.castPos)
+                       end
+            end
 
                 if IsReady(_E) and ValidTarget(enemy, 500) and GalioMenu.KillSteal.E:Value() and GetHP(enemy) < getdmg("E",enemy) then
 		                      CastSkillShot(_E, target)
@@ -238,9 +242,12 @@ OnTick(function (myHero)
         --AutoMode
         if GalioMenu.AutoMode.Q:Value() then        
           if Ready(_Q) and ValidTarget(target, 825) then
-		      CastSkillShot(_Q, target)
-          end
-        end 
+		      local QPred = GetPrediction(target,GalioQ)
+                       if QPred.hitChance > (GalioMenu.Automode.Qpred:Value() * 0.1) and not QPred:mCollision(1) then
+                                 CastSkillShot(_Q,QPred.castPos)
+                       end
+                 end
+            end
         if GalioMenu.AutoMode.W:Value() then        
           if Ready(_W) and ValidTarget(target, 500) then
 	  	      CastSpell(_W)
