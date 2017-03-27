@@ -81,6 +81,7 @@ GalioMenu.AutoIgnite:Boolean("Ignite", "Ignite if killable", true)
 
 GalioMenu:SubMenu("Drawings", "Drawings")
 GalioMenu.Drawings:Boolean("DQ", "Draw Q Range", true)
+GalioMenu.Drawings:Boolean("DR", "Draw R Range", true)
 
 GalioMenu:SubMenu("SkinChanger", "SkinChanger")
 GalioMenu.SkinChanger:Boolean("Skin", "UseSkinChanger", true)
@@ -278,6 +279,10 @@ OnDraw(function (myHero)
         
          if GalioMenu.Drawings.DQ:Value() then
 		DrawCircle(GetOrigin(myHero), 850, 0, 200, GoS.Black)
+	end
+		
+	if GalioMenu.Drawings.DR:Value() then
+		DrawCircle(GetOrigin(myHero), 4000, 0, 250, GoS.Black)
 	end
 
 end)
