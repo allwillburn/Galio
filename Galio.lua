@@ -167,7 +167,7 @@ OnTick(function (myHero)
 			CastTargetSpell(target, Gunblade)
             end
 			
-	    if GalioMenu.Combo.Protobelt:Value() and Gunblade > 0 and Ready(Gunblade) and ValidTarget(target, 700) then
+	    if GalioMenu.Combo.Protobelt:Value() and Protobelt > 0 and Ready(Protobelt) and ValidTarget(target, 700) then
 			CastSkillShot(Protobelt, target)
             end		
 
