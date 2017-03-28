@@ -168,7 +168,7 @@ OnTick(function (myHero)
             end
 			
 	    if GalioMenu.Combo.Protobelt:Value() and Gunblade > 0 and Ready(Gunblade) and ValidTarget(target, 700) then
-			CastTargetSpell(target, Protobelt)
+			CastSkillShot(Protobelt, target)
             end		
 
             if GalioMenu.Combo.RHydra:Value() and RHydra > 0 and Ready(RHydra) and ValidTarget(target, 400) then
