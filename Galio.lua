@@ -1,4 +1,4 @@
-local ver = "0.04"
+local ver = "0.05"
 
 
 if FileExist(COMMON_PATH.."MixLib.lua") then
@@ -180,6 +180,11 @@ OnTick(function (myHero)
 	    end
 	    
 	    local ally = ClosestAlly
+
+            if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 300) and (EnemiesAround(myHeroPos(), 300) >= GalioMenu.Combo.RX:Value()) then
+			CastSpell(_R)
+            end
+
             if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 4000) and (EnemiesAround(myHeroPos(), 4000) >= GalioMenu.Combo.RX:Value()) then
 			CastTargetSpell(target, _R)
             end
