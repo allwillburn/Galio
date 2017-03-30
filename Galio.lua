@@ -50,6 +50,7 @@ GalioMenu.Combo:Boolean("YGB", "Use GhostBlade", true)
 GalioMenu.Combo:Boolean("Gunblade", "Use Gunblade", true)
 GalioMenu.Combo:Boolean("Randuins", "Use Randuins", true)
 GalioMenu.Combo:Boolean("Protobelt", "Use Protobelt", true)
+GalioMenu.Combo:Boolean("GLP800", "Use GLP800", true)
 
 GalioMenu:SubMenu("AutoMode", "AutoMode")
 GalioMenu.AutoMode:Boolean("Level", "Auto level spells", false)
@@ -162,6 +163,10 @@ OnTick(function (myHero)
             if GalioMenu.Combo.Tiamat:Value() and Tiamat > 0 and Ready(Tiamat) and ValidTarget(target, 350) then
 			CastSpell(Tiamat)
             end
+			
+	    if GalioMenu.Combo.GLP800:Value() and GLP800 > 0 and Ready(GLP800) and ValidTarget(target, 700) then
+			CastTargetSpell(target, GLP800)
+            end	 		
 
             if GalioMenu.Combo.Gunblade:Value() and Gunblade > 0 and Ready(Gunblade) and ValidTarget(target, 700) then
 			CastTargetSpell(target, Gunblade)
