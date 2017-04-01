@@ -179,8 +179,8 @@ OnTick(function (myHero)
 			CastSpell(RHydra)
             end
 
-            if GalioMenu.Combo.Exhaust:Value() and ValidTarget(target, 500) then
-			CastTargetSpell(target, Exhaust)
+            if GalioMenu.Combo.Exhaust:Value() and ValidTarget(enemy, 500) then
+			CastTargetSpell(enemy, Exhaust)
 	    end
             
 	    if GalioMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 500) then
