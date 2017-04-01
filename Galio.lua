@@ -50,6 +50,7 @@ GalioMenu.Combo:Boolean("YGB", "Use GhostBlade", true)
 GalioMenu.Combo:Boolean("Gunblade", "Use Gunblade", true)
 GalioMenu.Combo:Boolean("Randuins", "Use Randuins", true)
 GalioMenu.Combo:Boolean("Protobelt", "Use Protobelt", true)
+GalioMenu.Combo:Boolean("Exhaust", "Use Exhaust in combo", true)
 
 
 GalioMenu:SubMenu("AutoMode", "AutoMode")
@@ -178,6 +179,10 @@ OnTick(function (myHero)
 			CastSpell(RHydra)
             end
 
+            if GalioMenu.Combo.Exhaust:Value() and ValidTarget(target, 500) then
+			CastTargetSpell(target, Exhaust)
+	    end
+            
 	    if GalioMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 500) then
 			CastSpell(_W)
 	    end
