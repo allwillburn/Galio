@@ -177,7 +177,7 @@ OnTick(function (myHero)
             if GalioMenu.Combo.RHydra:Value() and RHydra > 0 and Ready(RHydra) and ValidTarget(target, 400) then
 			CastSpell(RHydra)
             end
-            
+
 	    if GalioMenu.Combo.W:Value() and Ready(_W) and ValidTarget(target, 500) then
 			CastSpell(_W)
 	    end
