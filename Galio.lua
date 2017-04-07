@@ -1,4 +1,4 @@
-local ver = "0.05"
+local ver = "0.06"
 
 
 if FileExist(COMMON_PATH.."MixLib.lua") then
@@ -58,7 +58,7 @@ GalioMenu.AutoMode:Boolean("Q", "Auto Q", false)
 GalioMenu.AutoMode:Slider("Qpred", "Q Hit Chance", 3,0,10,1)
 GalioMenu.AutoMode:Boolean("W", "Auto W", false)
 GalioMenu.AutoMode:Boolean("E", "Auto E", false)
-GalioMenu.AutoMode:Boolean("R", "Auto R", false)
+
 
 GalioMenu:SubMenu("LaneClear", "LaneClear")
 GalioMenu.LaneClear:Boolean("Q", "Use Q", true)
@@ -92,7 +92,6 @@ GalioMenu:SubMenu("", "")
 
 GalioMenu:SubMenu("", "")
 
-GalioMenu:SubMenu("Warning Using R in Combo May Get You Banned ", "Warning Using R in Combo May Get You Banned ")
 
 OnTick(function (myHero)
 	local target = GetCurrentTarget()
@@ -183,9 +182,7 @@ OnTick(function (myHero)
 	    
 	    local ally = ClosestAlly
 
-            if GalioMenu.Combo.R:Value() and Ready(_R) and ValidTarget(target, 300) and (EnemiesAround(myHeroPos(), 300) >= GalioMenu.Combo.RX:Value()) then
-			CastSpell(_R)
-            end
+            
 
             
 
@@ -270,11 +267,7 @@ OnTick(function (myHero)
 		      CastSkillShot(_E, target)
 	  end
         end
-        if GalioMenu.AutoMode.R:Value() then        
-	  if Ready(_R) and ValidTarget(target, 4000) then
-		      CastTargetSpell(target, _R)
-	  end
-        end
+        
                 
 	--AUTO GHOST
 	if GalioMenu.AutoMode.Ghost:Value() then
