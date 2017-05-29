@@ -1,4 +1,4 @@
-local ver = "0.06"
+local ver = "0.07"
 
 
 if FileExist(COMMON_PATH.."MixLib.lua") then
@@ -40,7 +40,8 @@ GalioMenu.Combo:Boolean("Q", "Use Q in combo", true)
 GalioMenu.Combo:Slider("Qpred", "Q Hit Chance", 3,0,10,1)
 GalioMenu.Combo:Boolean("W", "Use W in combo", true)
 GalioMenu.Combo:Boolean("E", "Use E in combo", true)
-
+GalioMenu.Combo:Boolean("Stoneplate", "Use Stoneplate", true)
+GalioMenu.Combo:Slider("SX", "X Enemies to Cast Stoneplate",3,1,5,1)
 GalioMenu.Combo:Boolean("Cutlass", "Use Cutlass", true)
 GalioMenu.Combo:Boolean("Tiamat", "Use Tiamat", true)
 GalioMenu.Combo:Boolean("BOTRK", "Use BOTRK", true)
@@ -150,6 +151,10 @@ OnTick(function (myHero)
             if GalioMenu.Combo.E:Value() and Ready(_E) and ValidTarget(target, 500) then
 			 CastSkillShot(_E, target)
 	    end
+	    
+	    if GalioMenu.Combo.Stoneplate:Value() and Stoneplate > 0 and Ready(Stoneplate) and ValidTarget(target, 500) and (EnemiesAround(myHeroPos(), 500) >= GalioMenu.Combo.SX:Value()) then
+			CastSpell(Stoneplate)
+            end	
 
            
             if GalioMenu.Combo.Q:Value() and Ready(_Q) and ValidTarget(target, 850) then
