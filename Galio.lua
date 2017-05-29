@@ -1,4 +1,4 @@
-local ver = "0.07"
+local ver = "0.08"
 
 
 if FileExist(COMMON_PATH.."MixLib.lua") then
@@ -105,6 +105,7 @@ OnTick(function (myHero)
         local Randuins = GetItemSlot(myHero, 3143)
 	local Protobelt = GetItemSlot(myHero, 3152)	
         local ally = ClosestAlly
+	local Stoneplate = GetItemSlot(myHero, 3193)
 
 	--AUTO LEVEL UP
 	if GalioMenu.AutoMode.Level:Value() then
